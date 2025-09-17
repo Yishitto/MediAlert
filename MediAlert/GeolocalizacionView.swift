@@ -56,7 +56,7 @@ struct GeolocalizacionView: View {
                 )
                 .frame(height: 180)
                 .padding(.horizontal)
-            
+            Spacer()
             // Título sección
             HStack {
                 Text("Hospitales más cercanos")
@@ -94,13 +94,12 @@ struct GeolocalizacionView: View {
             
             // Tab bar (mock, estático)
             HStack(spacing: 30) {
+                Image(systemName: "house.fill")
                 NavigationLink {
-                    GeolocalizacionView()
+                    NotificacionesView()
                 } label: {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "bell.fill")
                 }
-                // Image(systemName: "house.fill")
-                Image(systemName: "bell.fill")
                 ZStack {
                     Circle().fill(Color(.systemBackground))
                         .frame(width: 56, height: 56)

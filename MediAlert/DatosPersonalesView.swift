@@ -11,25 +11,22 @@ struct DatosPersonalesView: View {
     var body: some View {
         VStack(spacing: 16) {
 
-            // Header propio (sin usar nav bar)
             HStack {
                 Label("Datos Personales", systemImage: "info.circle")
                     .font(.title3.weight(.semibold))
                 Spacer()
                 HStack(spacing: 14) {
-                    Image(systemName: "cross.case") // botiquín
-                    Image(systemName: "globe")       // idioma
+                    Image(systemName: "cross.case")
+                    Image(systemName: "globe")
                 }
                 .font(.title3)
             }
             .padding(.horizontal)
             .padding(.top, 12)
 
-            // Avatar + nombre
             HStack(spacing: 12) {
                 ZStack {
                     Circle().fill(Color(.secondarySystemBackground))
-                    // Si agregas un asset "avatar", pon Image("avatar")
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .scaledToFit()
@@ -49,7 +46,7 @@ struct DatosPersonalesView: View {
             // Lista de chips
             ScrollView {
                 VStack(spacing: 14) {
-                    ChipRow(titulo: "Nombre:", valor: "Camila")
+                    ChipRow(titulo: "Nombre:", valor: "Camila", editable: true)
                     ChipRow(titulo: "Apellidos:", valor: "Juárez", editable: true)
                     ChipRow(titulo: "Teléfono:", valor: "2354687958", editable: true)
                     ChipRow(titulo: "Contacto Emergencias:", valor: "2368545879", editable: true)
@@ -72,8 +69,11 @@ struct DatosPersonalesView: View {
                 } label: {
                     Image(systemName: "house.fill")
                 }
-                // Image(systemName: "house.fill")
-                Image(systemName: "bell.fill")
+                NavigationLink{
+                    NotificacionesView()
+                } label: {
+                    Image(systemName: "bell.fill")
+                }
                 ZStack {
                     Circle().fill(Color(.systemBackground))
                         .frame(width: 56, height: 56)
@@ -82,11 +82,7 @@ struct DatosPersonalesView: View {
                         .font(.headline)
                 }
                 Image(systemName: "book.fill")
-                NavigationLink{
-                    DatosPersonalesView()
-                } label: {
-                    Image(systemName: "person.crop.circle.fill")
-                }
+                Image(systemName: "person.crop.circle.fill")
             }
             .font(.title2)
             .padding(.vertical, 10)
@@ -96,7 +92,7 @@ struct DatosPersonalesView: View {
     }
 }
 
-/// Chip con fondo tipo cápsula, etiqueta azul y lápiz opcional
+// Estructura Chip
 struct ChipRow: View {
     let titulo: String
     let valor: String
