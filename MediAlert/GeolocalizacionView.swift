@@ -94,7 +94,12 @@ struct GeolocalizacionView: View {
             
             // Tab bar (mock, estático)
             HStack(spacing: 30) {
-                Image(systemName: "house.fill")
+                NavigationLink {
+                    GeolocalizacionView()
+                } label: {
+                    Image(systemName: "house.fill")
+                }
+                // Image(systemName: "house.fill")
                 Image(systemName: "bell.fill")
                 ZStack {
                     Circle().fill(Color(.systemBackground))
@@ -104,7 +109,14 @@ struct GeolocalizacionView: View {
                         .font(.headline)
                 }
                 Image(systemName: "book.fill")
-                Image(systemName: "person.crop.circle.fill")
+                
+                // Image(systemName: "person.crop.circle.fill")
+                // Navegación a Datos Personales
+                NavigationLink {
+                    DatosPersonalesView()
+                } label: {
+                    Image(systemName: "person.crop.circle.fill")
+                }
             }
             .font(.title2)
             .padding(.vertical, 10)
