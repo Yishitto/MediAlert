@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">cmica</string>
+    <string name="title_activity_geolocalizacion">GeolocalizacionActivity</string>
+</resources>
